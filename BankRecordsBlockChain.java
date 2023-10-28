@@ -6,7 +6,7 @@ public class BankRecordsBlockChain {
         public BankRecordsBlockChain() {
             chain = new ArrayList<BankRecords>();
             // Create the genesis block (the first block in the chain)
-            chain.add(new BankRecords(0, "0", "Student 1", 123, "Savings", "Debit", 200));
+            chain.add(new BankRecords(0, "0", "Transaction 1", 123, "Savings", "Debit", 200));
         }
         public void addBlock(String data) {
             BankRecords previousBlock = chain.get(chain.size() - 1);

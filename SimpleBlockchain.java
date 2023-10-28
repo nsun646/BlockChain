@@ -19,8 +19,8 @@ public class SimpleBlockchain {
         blockChain1.printBlockchain();
 
         StudentGradesBlockChain blockChain2 = new StudentGradesBlockChain();
-        blockChain2.addBlock("Student 2");
-        blockChain2.addBlock2("Student 3");
+        blockChain2.addBlock("Grade 2");
+        blockChain2.addBlock2("Grade 3");
 
         blockChain2.printBlockChain();
 

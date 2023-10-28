@@ -13,8 +13,8 @@ public class SimpleBlockchain {
         blockchain.printBlockchain();
 
         BankRecordsBlockChain blockChain1 = new BankRecordsBlockChain();
-        blockChain1.addBlock("Transaction 2");
-        blockChain1.addBlock2("Transaction 3");
+        blockChain1.addBlock("Bank Record 2");
+        blockChain1.addBlock2("Bank Record 3");
 
         blockChain1.printBlockchain();
 
@@ -23,6 +23,12 @@ public class SimpleBlockchain {
         blockChain2.addBlock2("Grade 3");
 
         blockChain2.printBlockChain();
+
+        CreditCardBlockChain blockChain3 = new CreditCardBlockChain();
+        blockChain3.addBlock("Transaction 2");
+        blockChain3.addBlock2("Transaction 3");
+
+        blockChain3.printBlockChain();
 
     }
 }

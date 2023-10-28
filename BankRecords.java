@@ -13,10 +13,10 @@ public class BankRecords {
     private int accountNumber;
     private String accountType;
     private String transactionType;
-    private int transactionAmount;
+    private double transactionAmount;
 
 
-    public BankRecords(int index, String previousHash, String data, int accountNumber, String accountType, String transactionType, int transactionAmount) {
+    public BankRecords(int index, String previousHash, String data, int accountNumber, String accountType, String transactionType, double transactionAmount) {
         this.index = index;
         this.timestamp = new Date().getTime();
         this.previousHash = previousHash;
@@ -91,11 +91,11 @@ public class BankRecords {
         return transactionType;
     }
 
-    public void setTransactionAmount(int transactionAmount) {
+    public void setTransactionAmount(double transactionAmount) {
         this.transactionAmount = transactionAmount;
     }
 
-    public int getTransactionAmount() {
+    public double getTransactionAmount() {
         return transactionAmount;
     }
 }

@@ -6,16 +6,16 @@ public class BankRecordsBlockChain {
         public BankRecordsBlockChain() {
             chain = new ArrayList<BankRecords>();
             // Create the genesis block (the first block in the chain)
-            chain.add(new BankRecords(0, "0", "Transaction 1", 123, "Savings", "Debit", 200));
+            chain.add(new BankRecords(0, "0", "Bank Record 1", 6008556, "Savings", "Debit", 200.00));
         }
         public void addBlock(String data) {
             BankRecords previousBlock = chain.get(chain.size() - 1);
-            BankRecords newBlock = new BankRecords(previousBlock.getIndex() + 1, previousBlock.getHash(), data, 12345, "Savings", "Debit", 700);
+            BankRecords newBlock = new BankRecords(previousBlock.getIndex() + 1, previousBlock.getHash(), data, 6995748, "Savings", "Debit", 700.50);
             chain.add(newBlock);
         }
         public void addBlock2(String data) {
             BankRecords previousBlock = chain.get(chain.size() - 1);
-            BankRecords newBlock1 = new BankRecords(previousBlock.getIndex() + 1, previousBlock.getHash(), data,123455, "Checking", "Debit", 550);
+            BankRecords newBlock1 = new BankRecords(previousBlock.getIndex() + 1, previousBlock.getHash(), data,1246335, "Checking", "Debit", 550.67);
             chain.add(newBlock1);
         }
         public void printBlockchain() {

@@ -15,27 +15,42 @@ public class Block {
         this.timestamp = new Date().getTime();
         this.previousHash = previousHash;
         this.data = data;
-        this.hash = calculateHash();
+        this.hash = calculateHash(3);
 
     }
-    public String calculateHash() {
+    public String calculateHash(int difficulty) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             String input = index + timestamp + previousHash + data;
-            byte[] hashBytes = digest.digest(input.getBytes("UTF-8"));
-            StringBuilder hexString = new StringBuilder();
+            int nonce = 0;
+            String target = "0".repeat(difficulty);
 
-            for (byte b : hashBytes) {
-                String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
+            while (true) {
+                String dataToHash = input + nonce;
+                byte[] hashBytes = digest.digest(dataToHash.getBytes("UTF-8"));
+                String hash = bytesToHex(hashBytes);
 
+                if (hash.substring(0, difficulty).equals(target)) {
+                    return hash;
+                }
+
+                nonce++;
             }
-            return hexString.toString();
         } catch (NoSuchAlgorithmException | java.io.UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
+    private static String bytesToHex(byte[] bytes) {
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : bytes) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
+
+
     public int getIndex() {
         return index;
     }
